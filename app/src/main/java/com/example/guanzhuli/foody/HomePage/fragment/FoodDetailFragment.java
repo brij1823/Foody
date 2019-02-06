@@ -62,14 +62,14 @@ public class FoodDetailFragment extends Fragment {
     }
 
     private void initView(){
-        collapsingToolbarLayout = (CollapsingToolbarLayout) view.findViewById(R.id.food_detail_collapsing_toolbar);
-        collapsingToolbarLayout.setTitle("Food Name");
+     //   collapsingToolbarLayout = (CollapsingToolbarLayout) view.findViewById(R.id.food_detail_collapsing_toolbar);
+       // collapsingToolbarLayout.setTitle("Food Name");
         mTextId = (TextView) view.findViewById(R.id.food_detail_id);
         mTextRecipe = (TextView) view.findViewById(R.id.food_detail_recipe);
         mTextCategory = (TextView) view.findViewById(R.id.food_detail_category);
         mTextPrice = (TextView) view.findViewById(R.id.food_detail_price);
         mButtonAdd = (Button) view.findViewById(R.id.food_detail_add);
-        mImageView = (ImageView) view.findViewById(R.id.food_detail_image);
+       // mImageView = (ImageView) view.findViewById(R.id.food_detail_image);
     }
 
     private void initFoodInfo(){
@@ -113,7 +113,7 @@ public class FoodDetailFragment extends Fragment {
 
                 new AlertDialog.Builder(getActivity()).setTitle("Successful!").setIcon(
                         android.R.drawable.ic_dialog_info)
-                        .setMessage("Add 1 " + food.getName() + " to cart!")
+                        .setMessage("Add  " + food.getName() + " to cart!")
                         .setPositiveButton("Jump to cart", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {

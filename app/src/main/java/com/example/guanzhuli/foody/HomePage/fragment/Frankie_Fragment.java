@@ -1,9 +1,5 @@
 package com.example.guanzhuli.foody.HomePage.fragment;
 
-// Lily: Designed UI. Set fragment replacement. Implemented custom animation.
-// Xiao: implemented data request and onClickListener for each adapter.
-
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,6 +18,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.guanzhuli.foody.HomePage.HomePageActivity;
 import com.example.guanzhuli.foody.HomePage.adapter.AllFoodAdapter;
+import com.example.guanzhuli.foody.HomePage.adapter.VegFoodAdapter;
 import com.example.guanzhuli.foody.R;
 import com.example.guanzhuli.foody.controller.VolleyController;
 import com.example.guanzhuli.foody.model.Food;
@@ -32,26 +29,22 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by Sanket Patel on 26-01-2019.
  */
-public class AllTabFragment extends Fragment {
+public class Frankie_Fragment extends Fragment {
 
-
-    //private String baseUrl = "http://rjtmobile.com/ansari/fos/fosapp/fos_food_loc.php?city=";
-    private String baseUrl = "https://pastebin.com/raw/dsaGh9gf";
-
-    private String TAG = "ALLFOOD";
+    private String baseUrl = "https://pastebin.com/raw/TVux87r3";
+    private String TAG = "VEGFOOD";
 
 
     ArrayList<Food> foods = new ArrayList<>();
 
     private RecyclerView mRecyclerView;
-    private AllFoodAdapter adapter;
+    private VegFoodAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
 
-
-    public AllTabFragment() {
+    public Frankie_Fragment() {
         // Required empty public constructor
     }
 
@@ -59,19 +52,17 @@ public class AllTabFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_all_tab, container, false);
+
 
         // Request Data From Web Service
-        if (foods.size()==0){
+        if (foods.size() == 0){
             objRequestMethod();
         }
 
-
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview_all);
-        mRecyclerView.setHasFixedSize(false);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new AllFoodAdapter(getActivity(), foods);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_veg_tab, container, false);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview_veg);
+        adapter = new VegFoodAdapter(getContext(), foods);
         adapter.setOnItemClickListener(new AllFoodAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, String data) {
@@ -84,7 +75,6 @@ public class AllTabFragment extends Fragment {
                         itemInfo.putString("foodRec", foods.get(i).getRecepiee());
                         itemInfo.putDouble("foodPrice", foods.get(i).getPrice());
                         itemInfo.putString("foodImage", foods.get(i).getImageUrl());
-                        break;
                     }
                 }
                 FoodDetailFragment foodDetailFragment = new FoodDetailFragment();
@@ -98,6 +88,8 @@ public class AllTabFragment extends Fragment {
             }
         });
         mRecyclerView.setAdapter(adapter);
+        mRecyclerView.setHasFixedSize(false);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return view;
     }
 
@@ -117,10 +109,9 @@ public class AllTabFragment extends Fragment {
                         String name = c.getString("FoodName");
                         String recepiee = c.getString("FoodRecepiee");
                         String price = c.getString("FoodPrice");
-                       // String category = c.getString("FoodCategory");
                         String thumb = c.getString("FoodThumb");
                         final Food curFood = new Food();
-               //         curFood.setCategory(category);
+                        curFood.setCategory("veg");
                         curFood.setName(name);
                         curFood.setRecepiee(recepiee);
                         curFood.setPrice(Double.valueOf(price));
@@ -128,7 +119,7 @@ public class AllTabFragment extends Fragment {
                         curFood.setImageUrl(thumb);
 
                         foods.add(curFood);
-//                        Log.e("Current Food", curFood.getName());
+                        Log.e("Current Food", curFood.getName());
 
                         ImageLoader imageLoader = VolleyController.getInstance().getImageLoader();
                         imageLoader.get(thumb, new ImageLoader.ImageListener() {
@@ -140,7 +131,7 @@ public class AllTabFragment extends Fragment {
                             public void onResponse(ImageLoader.ImageContainer response, boolean arg1) {
                                 if (response.getBitmap() != null) {
                                     curFood.setImage(response.getBitmap());
-//                                    Log.e("SET IMAGE", curFood.getName());
+                                    Log.e("SET IMAGE", curFood.getName());
                                     adapter.notifyData(foods);
                                 }
                             }
@@ -149,7 +140,7 @@ public class AllTabFragment extends Fragment {
                     }
 
                 }catch (Exception e){
-                    System.out.println(e);
+                    System.out.println(TAG + e);
                 }
                 HomePageActivity.disPDialog();
             }
@@ -161,13 +152,13 @@ public class AllTabFragment extends Fragment {
                 HomePageActivity.disPDialog();
             }
         });
+        Log.e("URL", jsonObjReq.getUrl());
         VolleyController.getInstance().addToRequestQueue(jsonObjReq);
     }
 
     private String buildUrl() {
-
-        //return baseUrl + HomePageActivity.City;
+        // return baseUrl + HomePageActivity.City;
         return baseUrl;
     }
-
 }
+

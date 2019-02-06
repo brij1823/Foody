@@ -1,9 +1,5 @@
 package com.example.guanzhuli.foody.HomePage.fragment;
 
-// Lily: Designed UI. Set fragment replacement. Implemented custom animation.
-// Xiao: implemented data request and onClickListener for each adapter.
-
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -32,13 +28,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by Sanket Patel on 25-01-2019.
  */
-public class AllTabFragment extends Fragment {
+
+public class IndianFragment extends Fragment {
 
 
     //private String baseUrl = "http://rjtmobile.com/ansari/fos/fosapp/fos_food_loc.php?city=";
-    private String baseUrl = "https://pastebin.com/raw/dsaGh9gf";
+    private String baseUrl = "https://pastebin.com/raw/SUATXHd3";
 
     private String TAG = "ALLFOOD";
 
@@ -51,7 +48,7 @@ public class AllTabFragment extends Fragment {
 
 
 
-    public AllTabFragment() {
+    public IndianFragment() {
         // Required empty public constructor
     }
 
@@ -117,10 +114,10 @@ public class AllTabFragment extends Fragment {
                         String name = c.getString("FoodName");
                         String recepiee = c.getString("FoodRecepiee");
                         String price = c.getString("FoodPrice");
-                       // String category = c.getString("FoodCategory");
+                        // String category = c.getString("FoodCategory");
                         String thumb = c.getString("FoodThumb");
                         final Food curFood = new Food();
-               //         curFood.setCategory(category);
+                        //         curFood.setCategory(category);
                         curFood.setName(name);
                         curFood.setRecepiee(recepiee);
                         curFood.setPrice(Double.valueOf(price));
@@ -171,3 +168,4 @@ public class AllTabFragment extends Fragment {
     }
 
 }
+

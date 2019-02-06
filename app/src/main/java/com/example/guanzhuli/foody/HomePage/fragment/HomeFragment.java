@@ -6,13 +6,7 @@ package com.example.guanzhuli.foody.HomePage.fragment;
 // Xiao: Implemented change city function.
 //
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -22,15 +16,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.view.ViewParent;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.guanzhuli.foody.HomePage.HomePageActivity;
+import com.example.guanzhuli.foody.HomePage.Categories;
 import com.example.guanzhuli.foody.R;
-
-import static com.example.guanzhuli.foody.HomePage.HomePageActivity.City;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,13 +26,13 @@ public class HomeFragment extends Fragment {
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
+    String name;
 
 
-    private TextView locationView;
-    private TextView changeLocView;
 
     public HomeFragment() {
         // Required empty public constructor
+        name= Categories.code;
     }
 
     @Override
@@ -79,41 +66,6 @@ public class HomeFragment extends Fragment {
         });
 
 
-        locationView = (TextView) view.findViewById(R.id.home_TV_Location);
-        locationView.setText(City);
-        changeLocView = (TextView) view.findViewById(R.id.home_TV_notHere);
-        changeLocView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LayoutInflater inflater = getActivity().getLayoutInflater();
-                View layout = inflater.inflate(R.layout.dialog_set_city,(ViewGroup) view.findViewById(R.id.dialog));
-                new AlertDialog.Builder(getActivity()).setTitle("Please Input City Name").setIcon(
-                        android.R.drawable.ic_dialog_info).setView(
-                        layout).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Dialog dialog = (Dialog) dialogInterface;
-                        EditText inputCity = (EditText) dialog.findViewById(R.id.dialog_et_city);
-                        if (inputCity.getText().toString().equalsIgnoreCase("banglore")){
-                            HomePageActivity.City = "banglore";
-                            getActivity().recreate();
-                        }
-                        else if (inputCity.getText().toString().equalsIgnoreCase("delhi")){
-                            HomePageActivity.City = "delhi";
-                            getActivity().recreate();
-                        }
-                        else {
-                            String SorryInfo = "We Currently Don't Have Service At Your Location!";
-                            new AlertDialog.Builder(getActivity()).setTitle("Sorry!").setIcon(
-                                    android.R.drawable.ic_dialog_info)
-                                    .setMessage(SorryInfo)
-                                    .setNegativeButton("Cancel", null).show();
-                        }
-                    }
-                })
-                        .setNegativeButton("Cancel", null).show();
-            }
-        });
         return view;
     }
 
@@ -125,16 +77,34 @@ public class HomeFragment extends Fragment {
 
         @Override
         public Fragment getItem(int position) {
-            switch (position) {
-                case 0:
+            switch (name) {
+                case "pizza":
                     AllTabFragment tab1 = new AllTabFragment();
                     return tab1;
-                case 1:
+                case "sandwich":
                     VegTabFragment tab2 = new VegTabFragment();
                     return tab2;
-                case 2:
+                case "starters":
                     NonVegTabFragment tab3 = new NonVegTabFragment();
                     return tab3;
+                case "indian food":
+                    IndianFragment tab4=new IndianFragment();
+                    return  tab4;
+
+                case "chinese food":
+                    Chinese_Fragment tab5=new Chinese_Fragment();
+                    return tab5;
+                case "punjabi food":
+                    Punjabi_Fragment tab6=new Punjabi_Fragment();
+                    return tab6;
+                case "biryani":
+                    Biryani_Fragment tab7=new Biryani_Fragment();
+                    return tab7;
+                case "frankie":
+                      Frankie_Fragment tab8=new Frankie_Fragment();
+                      return tab8;
+
+
                 default:
                     break;
             }
@@ -143,18 +113,28 @@ public class HomeFragment extends Fragment {
 
         @Override
         public int getCount() {
-            return 3;
+            return 1;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "All";
-                case 1:
-                    return "Veg";
-                case 2:
-                    return "Non Veg";
+            switch (name) {
+                case "pizza":
+                    return "Pizza";
+                case "sandwich":
+                    return "Sandwich";
+                case "starters":
+                    return "Starters";
+                case "indian food":
+                    return "Indian";
+                case "chinese food":
+                    return  "Chinese";
+                case "punjabi food":
+                    return "Punjabi";
+                case "biryani":
+                    return  "Biryani";
+                case "frankie":
+                    return "Frankie";
                 default:
                     break;
             }

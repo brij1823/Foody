@@ -89,8 +89,8 @@ public class CheckoutFragment extends Fragment {
         mButtonCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "checkout", Toast.LENGTH_LONG).show();
-                payOrder();
+                Toast.makeText(getContext(), "Order Placed Successfully!", Toast.LENGTH_LONG).show();
+              //  payOrder();
             }
         });
         mButtonCancel = (Button) view.findViewById(R.id.checkout_cancel);

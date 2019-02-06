@@ -34,7 +34,7 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class NonVegTabFragment extends Fragment {
-    private String baseUrl = "http://rjtmobile.com/ansari/fos/fosapp/fos_food.php?food_category=non-veg&city=";
+    private String baseUrl = "https://pastebin.com/raw/H18ziz8m";
     private String TAG = "NON_VEG_FOOD";
 
 
@@ -154,7 +154,9 @@ public class NonVegTabFragment extends Fragment {
     }
 
     private String buildUrl() {
-        return baseUrl + HomePageActivity.City;
+
+        //return baseUrl + HomePageActivity.City;
+        return baseUrl;
     }
 
 

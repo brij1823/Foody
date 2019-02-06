@@ -22,9 +22,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/divider"
-                android:textSize="46sp"
+                android:textSize="36sp"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:text="Foody"/>
+                android:text="Celebration\nCafe"/>
 
     </LinearLayout>
 

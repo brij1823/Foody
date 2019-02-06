@@ -3,49 +3,37 @@ package com.example.guanzhuli.foody.HomePage;
 // Xiao: Implemented default city and logout function
 
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
+import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.guanzhuli.foody.CartPage.CartActivity;
-import com.example.guanzhuli.foody.HomePage.fragment.*;
+import com.example.guanzhuli.foody.HomePage.fragment.HomeFragment;
 import com.example.guanzhuli.foody.R;
-import com.example.guanzhuli.foody.StartingPage.SplashActivity;
-import com.example.guanzhuli.foody.controller.DBManipulation;
-import com.example.guanzhuli.foody.controller.SPManipulation;
 import com.example.guanzhuli.foody.controller.ShoppingCartItem;
 import com.facebook.FacebookSdk;
-import com.facebook.login.LoginManager;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.plus.People;
 import com.google.android.gms.plus.Plus;
 
 public class HomePageActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,
+        implements
         GoogleApiClient.OnConnectionFailedListener,
         GoogleApiClient.ConnectionCallbacks,
         ResultCallback<People.LoadPeopleResult>{
@@ -91,7 +79,7 @@ public class HomePageActivity extends AppCompatActivity
     // Haven'v finished function
     private void setCity(){
         if (City == null){
-            City = "banglore";
+            City = "Nadiad";
         }
     }
 
@@ -115,21 +103,6 @@ public class HomePageActivity extends AppCompatActivity
                 startActivity(new Intent(HomePageActivity.this, CartActivity.class));
             }
         });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        View navHeaderView = navigationView.inflateHeaderView(R.layout.nav_header_main);
-        TextView header_mobile = (TextView) navHeaderView.findViewById(R.id.nav_mobile);
-        TextView header_name = (TextView) navHeaderView.findViewById(R.id.nav_name);
-        header_name.setText(SPManipulation.getInstance(this).getName());
-        header_mobile.setText(SPManipulation.getInstance(this).getEmail());
 
         if(findViewById(R.id.main_fragment_container) != null) {
             HomeFragment homeFragment = new HomeFragment();
@@ -167,65 +140,6 @@ public class HomePageActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        switch (id) {
-            case R.id.nav_home:
-                HomeFragment homeFragment = new HomeFragment();
-                transaction.replace(R.id.main_fragment_container, homeFragment).commit();
-                break;
-            case R.id.nav_addr:
-                break;
-            case R.id.nav_profile:
-                ProfileFragment profileFragment = new ProfileFragment();
-                transaction.replace(R.id.main_fragment_container, profileFragment).commit();
-                break;
-            case R.id.nav_history:
-                HistoryFragment historyFragment = new HistoryFragment();
-                transaction.replace(R.id.main_fragment_container, historyFragment).commit();
-                break;
-            case R.id.nav_track:
-                TrackFragment trackFragment = new TrackFragment();
-                transaction.replace(R.id.main_fragment_container, trackFragment).commit();
-                break;
-            case R.id.nav_help:
-                HelpFragment helpFragment = new HelpFragment();
-                transaction.replace(R.id.main_fragment_container, helpFragment).commit();
-                break;
-            case R.id.nav_rate:
-                break;
-            case R.id.nav_logout:
-                SPManipulation.getInstance(this).clearSharedPreference();
-                LoginManager.getInstance().logOut();
-                if (mGoogleApiClient.isConnected()) {
-//                    mGoogleApiClient.disconnect();
-//                    // updateUI(false);
-//                    System.err.println("LOG OUT ^^^^^^^^^^^^^^^^^^^^ SUCESS");
-                    Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                            new ResultCallback<Status>() {
-                                @Override
-                                public void onResult(Status status) {
-                                    // ...
-                                    Toast.makeText(getApplicationContext(),"Logged Out",Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                }
-                Intent splash = new Intent(this, SplashActivity.class);
-                startActivity(splash);
-                finish();
-            default:
-                break;
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
 

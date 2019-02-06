@@ -35,7 +35,7 @@ import java.util.ArrayList;
  */
 public class VegTabFragment extends Fragment {
 
-    private String baseUrl = "http://rjtmobile.com/ansari/fos/fosapp/fos_food.php?food_category=veg&city=";
+    private String baseUrl = "https://pastebin.com/raw/gn785BH6";
     private String TAG = "VEGFOOD";
 
 
@@ -159,6 +159,7 @@ public class VegTabFragment extends Fragment {
     }
 
     private String buildUrl() {
-        return baseUrl + HomePageActivity.City;
+       // return baseUrl + HomePageActivity.City;
+        return baseUrl;
     }
 }
