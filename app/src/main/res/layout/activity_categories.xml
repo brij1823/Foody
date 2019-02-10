@@ -1,64 +1,237 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.guanzhuli.foody.HomePage.Categories">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <ImageButton
-            android:id="@+id/zero"
-            android:layout_margin="5dp"
-            android:src="@drawable/frankie_wally"
-            android:layout_width="wrap_content"
-            android:layout_height="175dp" />
 
-        <ImageButton
-            android:id="@+id/one"
-            android:layout_margin="5dp"
-            android:src="@drawable/pizza_wally"
-            android:layout_width="wrap_content"
-            android:layout_height="175dp" />
-        <ImageButton
-            android:id="@+id/two"
-            android:layout_margin="5dp"
-            android:src="@drawable/sandy_wally"
-            android:layout_width="wrap_content"
-            android:layout_height="175dp" />
-        <ImageButton
-            android:id="@+id/three"
-            android:layout_margin="5dp"
-            android:src="@drawable/starter_wally"
-            android:layout_width="wrap_content"
-            android:layout_height="175dp" />
-        <ImageButton
-            android:id="@+id/four"
-            android:layout_margin="5dp"
-            android:src="@drawable/indian_wally"
-            android:layout_width="wrap_content"
-            android:layout_height="175dp" />
-        <ImageButton
-            android:id="@+id/five"
-            android:layout_margin="5dp"
-            android:src="@drawable/chinese_wally"
-            android:layout_width="wrap_content"
-            android:layout_height="175dp" />
-        <ImageButton
-            android:id="@+id/six"
-            android:layout_margin="5dp"
-            android:src="@drawable/punjabi_wally"
-            android:layout_width="wrap_content"
-            android:layout_height="175dp" />
-        <ImageButton
-            android:id="@+id/seven"
-            android:layout_margin="5dp"
-            android:src="@drawable/biryani_wally"
-            android:layout_width="wrap_content"
-            android:layout_height="175dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#f00"
+        >
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
 
-</ScrollView>
+            android:fontFamily="@font/cherry_swash_bold"
+            android:text="Menu"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="30sp" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/yourviewhere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/frankie">
+
+                <Button
+                    android:id="@+id/zero"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/category_background"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Frankie"
+                    android:textColor="#ffffff"
+                    android:textSize="40sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/category_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pizza">
+
+                    <Button
+                        android:id="@+id/one"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Pizza"
+                        android:background="@drawable/category_background"
+                        android:textColor="#ffffff"
+                        android:textSize="40sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/category_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:background="@drawable/sandwhich">
+
+                    <Button
+                        android:id="@+id/two"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/category_background"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Sandwhich"
+                        android:textColor="#ffffff"
+                        android:textSize="40sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/category_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:background="@drawable/starters">
+
+                    <Button
+                        android:id="@+id/three"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/category_background"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Starters"
+                        android:textColor="#ffffff"
+                        android:textSize="40sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/category_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:background="@drawable/pavbhaji">
+
+                    <Button
+                        android:id="@+id/four"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/category_background"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Indian Food"
+                        android:textColor="#ffffff"
+                        android:textSize="40sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/category_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:background="@drawable/chinese">
+
+                    <Button
+                        android:id="@+id/five"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/category_background"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Chinese Food"
+                        android:textColor="#ffffff"
+                        android:textSize="40sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/category_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:background="@drawable/punjabi">
+
+                    <Button
+                        android:id="@+id/six"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/category_background"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Punjabi Food"
+                        android:textColor="#ffffff"
+                        android:textSize="40sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/category_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:background="@drawable/biryani">
+
+                    <Button
+                        android:id="@+id/seven"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/category_background"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Biryani"
+                        android:textColor="#ffffff"
+                        android:textSize="40sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -62,14 +62,14 @@ public class FoodDetailFragment extends Fragment {
     }
 
     private void initView(){
-     //   collapsingToolbarLayout = (CollapsingToolbarLayout) view.findViewById(R.id.food_detail_collapsing_toolbar);
-       // collapsingToolbarLayout.setTitle("Food Name");
+//        collapsingToolbarLayout = (CollapsingToolbarLayout) view.findViewById(R.id.food_detail_collapsing_toolbar);
+//        collapsingToolbarLayout.setTitle("Food Name");
         mTextId = (TextView) view.findViewById(R.id.food_detail_id);
         mTextRecipe = (TextView) view.findViewById(R.id.food_detail_recipe);
         mTextCategory = (TextView) view.findViewById(R.id.food_detail_category);
         mTextPrice = (TextView) view.findViewById(R.id.food_detail_price);
         mButtonAdd = (Button) view.findViewById(R.id.food_detail_add);
-       // mImageView = (ImageView) view.findViewById(R.id.food_detail_image);
+//        mImageView = (ImageView) view.findViewById(R.id.food_detail_image);
     }
 
     private void initFoodInfo(){
@@ -84,7 +84,7 @@ public class FoodDetailFragment extends Fragment {
         mTextCategory.setText(food.getCategory());
         mTextRecipe.setText(food.getRecepiee());
         mTextPrice.setText(String.valueOf(food.getPrice()));
-        collapsingToolbarLayout.setTitle(food.getName());
+//        collapsingToolbarLayout.setTitle(food.getName());
 
         ImageLoader imageLoader = VolleyController.getInstance().getImageLoader();
         imageLoader.get(getArguments().getString("foodImage"), new ImageLoader.ImageListener() {
@@ -96,7 +96,7 @@ public class FoodDetailFragment extends Fragment {
             public void onResponse(ImageLoader.ImageContainer response, boolean arg1) {
                 if (response.getBitmap() != null) {
                     food.setImage(response.getBitmap());
-                    mImageView.setImageBitmap(food.getImage());
+//                    mImageView.setImageBitmap(food.getImage());
                 }
             }
         });

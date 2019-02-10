@@ -36,13 +36,12 @@ public class HomePageActivity extends AppCompatActivity
         implements
         GoogleApiClient.OnConnectionFailedListener,
         GoogleApiClient.ConnectionCallbacks,
-        ResultCallback<People.LoadPeopleResult>{
+        ResultCallback<People.LoadPeopleResult> {
 
     private static ProgressDialog pDialog;
 
     GoogleApiClient mGoogleApiClient;
     boolean mSignInClicked;
-
 
 
     public static String City;
@@ -77,15 +76,15 @@ public class HomePageActivity extends AppCompatActivity
     }
 
     // Haven'v finished function
-    private void setCity(){
-        if (City == null){
+    private void setCity() {
+        if (City == null) {
             City = "Nadiad";
         }
     }
 
     public static TextView cartNumber;
 
-    private void init(){
+    private void init() {
 
         pDialog = new ProgressDialog(this);
         pDialog.setMessage("Loading...");
@@ -104,7 +103,7 @@ public class HomePageActivity extends AppCompatActivity
             }
         });
 
-        if(findViewById(R.id.main_fragment_container) != null) {
+        if (findViewById(R.id.main_fragment_container) != null) {
             HomeFragment homeFragment = new HomeFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, homeFragment).commit();
         }
@@ -112,11 +111,12 @@ public class HomePageActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
         }
     }
 
@@ -143,14 +143,14 @@ public class HomePageActivity extends AppCompatActivity
     }
 
 
-
-    public static void showPDialog(){
-        if (!pDialog.isShowing()){
+    public static void showPDialog() {
+        if (!pDialog.isShowing()) {
             pDialog.show();
         }
     }
-    public static void disPDialog(){
-        if (pDialog.isShowing()){
+
+    public static void disPDialog() {
+        if (pDialog.isShowing()) {
             pDialog.dismiss();
         }
     }

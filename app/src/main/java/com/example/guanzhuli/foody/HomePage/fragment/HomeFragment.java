@@ -126,9 +126,9 @@ public class HomeFragment extends Fragment {
                 case "starters":
                     return "Starters";
                 case "indian food":
-                    return "Indian";
+                    return "Indian Food";
                 case "chinese food":
-                    return  "Chinese";
+                    return  "Chinese Food";
                 case "punjabi food":
                     return "Punjabi";
                 case "biryani":

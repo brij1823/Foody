@@ -1,100 +1,112 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                 xmlns:tools="http://schemas.android.com/tools"
-                                                 android:layout_width="match_parent"
-                                                 android:layout_height="match_parent"
-                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                 tools:context="com.example.guanzhuli.foody.HomePage.fragment.FoodDetailFragment">
-    <android.support.design.widget.AppBarLayout
-            android:id="@+id/food_detail_app_bar_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay"
-            android:fitsSystemWindows="false">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.guanzhuli.foody.HomePage.fragment.FoodDetailFragment">
 
-
-    </android.support.design.widget.AppBarLayout>
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="300dp"
+        android:paddingTop="20dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:minHeight="300dp"
-            android:paddingTop="20dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <LinearLayout
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:orientation="vertical"
-                android:layout_width="wrap_content" android:layout_height="wrap_content">
+            android:orientation="vertical">
+
             <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
                 <TextView
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ID :"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID :"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    />
+
                 <TextView
-                        android:id="@+id/food_detail_id"
-                        android:text="food id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                    android:id="@+id/food_detail_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="food id"
+                    android:paddingLeft="30dp"
+                    android:textColor="#000"/>
             </LinearLayout>
+
             <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="0dp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
                 <TextView
-                        android:textStyle="bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Category :"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Category :"
+                    android:textStyle="bold"
+                    android:textColor="#000"/>
+
                 <TextView
-                        android:id="@+id/food_detail_category"
-                        android:text="Veg/ Non Veg"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                    android:id="@+id/food_detail_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Veg/ Non Veg"
+                    android:textColor="#000"/>
             </LinearLayout>
+
             <TextView
-                    android:textStyle="bold"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="0dp"
-                    android:text="Recipe:"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Recipe:"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_marginBottom="8dp"/>
+
             <TextView
-                    android:id="@+id/food_detail_recipe"
-                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="0dp"
-                    android:text="food recipe"/>
+                android:id="@+id/food_detail_recipe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="food recipe"
+                android:textColor="#000"
+                android:layout_marginBottom="8dp"/>
+
             <TextView
-                    android:id="@+id/food_detail_price"
-                    android:textStyle="bold"
-                    android:gravity="end"
-                    android:textSize="26sp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="0dp"
-                    android:text="300.00"/>
-            <RelativeLayout android:layout_width="match_parent"
-                            android:gravity="bottom"
-                            android:layout_weight="4"
-                            android:layout_height="0dp">
-                <Button
-                        android:id="@+id/food_detail_add"
-                        android:layout_marginTop="@dimen/activity_vertical_margin"
-                        android:text="Add to Cart"
-                        android:textColor="@color/icons"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:layout_width="match_parent" android:layout_height="wrap_content"/>
-            </RelativeLayout>
+                android:id="@+id/food_detail_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="300.00"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/food_detail_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="Add to Cart"
+                android:textColor="@color/icons"
+                android:layout_marginBottom="8dp"/>
         </LinearLayout>
 
 
